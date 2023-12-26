@@ -1,0 +1,27 @@
+---
+export enum Status {
+  "OPEN" = "Open",
+  "NOT_AVAILABLE" = "Not Looking for jobs",
+}
+
+interface Props {
+  status: Status;
+}
+import { Briefcase, X } from "astro-feather-icons";
+
+const { status } = Astro.props;
+const isOpen = status === Status.OPEN;
+
+const containerBg = isOpen ? "bg-emerald-500" : "bg-red-200 dark:bg-red-500";
+const textColor = isOpen ? "text-white" : "text-red-700";
+---
+
+<div class=`p-2.5 rounded-xl grid place-items-center ${containerBg}`>
+  <div class=`dark:text-white ${textColor}`>
+    {isOpen ? <Briefcase size="14" /> : <X size="14" />}
+  </div>
+</div>
+<span
+  class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap text-gray-200 bg-gray-800 dark:bg-white dark:text-gray-700 before:content-[''] before:absolute before:bg-gray-800 before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:dark:bg-white before:dark:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3"
+  >{status}
+</span>

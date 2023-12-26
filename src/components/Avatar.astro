@@ -1,0 +1,26 @@
+---
+interface Props {
+  src: string;
+  srcset: string;
+}
+const { src, srcset } = Astro.props;
+---
+
+<div
+  class="relative w-44 h-44 bg-indigo-100 dark:bg-sky-100/60 border-8 border-white dark:border-gray-900/80 shadow-lg rounded-full overflow-hidden"
+>
+  <span
+    style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"
+  >
+    <img
+      alt="avatar"
+      sizes="100vw"
+      srcset={srcset}
+      src={src}
+      decoding="async"
+      data-nimg="fill"
+      class="rounded-full drop-shadow-2xl"
+      style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover"
+    />
+  </span>
+</div>

@@ -1,71 +1,33 @@
 ---
+import { Status } from "../Badge.astro";
+
 interface Props {
   title: string;
   description: string;
-  badgeStatus: string;
+  status: Status;
 }
+const { title, description, status } = Astro.props;
 
-const { title, description, badgeStatus } = Astro.props;
-import { Briefcase, FileText, X } from "astro-feather-icons";
-import AnimatedIconLottie from "../../icons/AnimatedIconLottie.astro";
+import Avatar from "../Avatar.astro";
+import Badge from "../Badge.astro";
+import ResumeButton from "../Buttons/Resume.astro";
+import ProfileDescription from "../ProfileDescription.astro";
+const imageSrc =
+  "https://media.licdn.com/dms/image/D4E03AQH9IWept7Mwlw/profile-displayphoto-shrink_200_200/0/1685364458712?e=1709164800&v=beta&t=eyiIn7WZ4aro0ULYSLJm9KSN1nN9bRnDMtpW9PCf0t0";
 ---
 
 <section class="flex flex-col sm:flex-row items-center gap-5">
-  <div
-    class="relative w-44 h-44 bg-indigo-100 dark:bg-sky-100/60 border-8 border-white dark:border-gray-900/80 shadow-lg rounded-full overflow-hidden"
-  >
-    <span
-      style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"
-      ><img
-        alt="avatar"
-        sizes="100vw"
-        srcset="https://media.licdn.com/dms/image/D4E03AQH9IWept7Mwlw/profile-displayphoto-shrink_200_200/0/1685364458712?e=1709164800&v=beta&t=eyiIn7WZ4aro0ULYSLJm9KSN1nN9bRnDMtpW9PCf0t0"
-        src="https://media.licdn.com/dms/image/D4E03AQH9IWept7Mwlw/profile-displayphoto-shrink_200_200/0/1685364458712?e=1709164800&v=beta&t=eyiIn7WZ4aro0ULYSLJm9KSN1nN9bRnDMtpW9PCf0t0"
-        decoding="async"
-        data-nimg="fill"
-        class="rounded-full drop-shadow-2xl"
-        style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover"
-      /></span
-    >
-  </div><div class="flex flex-col items-center sm:items-start gap-3">
-    <div class="flex flex-col items-left gap-2">
-      <h1
-        class="text-2xl sm:text-4xl text-center sm:text-left font-bold text-slate-600 dark:text-slate-100"
-      >
-        {title}
-      </h1>
-      <div class="flex flex-col gap-0 md:gap-1 items-center md:flex-row">
-        <p
-          class="text-slate-700 text-sm sm:text-lg dark:text-slate-100 max-w-xl rounded-2xl"
-        >
-          {description}
-        </p>
-        <AnimatedIconLottie />
-      </div>
-    </div><div class="flex gap-3">
+  <Avatar src={imageSrc} srcset={imageSrc} />
+  <div class="flex flex-col items-center sm:items-start gap-3">
+    <ProfileDescription title={title} description={description} />
+    <div class="flex gap-3">
       <div class="relative group/tooltip">
-        <div
-          class=`p-2.5 rounded-xl grid place-items-center ${badgeStatus==='Open'? 'bg-emerald-500':'bg-red-200 dark:bg-red-500'}`
-        >
-          <div
-            class=`dark:text-white ${badgeStatus==='Open'? 'text-white':'text-red-700'}`
-          >
-            {badgeStatus === "Open" ? <Briefcase size="14" /> : <X size="14" />}
-          </div>
-        </div><span
-          class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap text-gray-200 bg-gray-800 dark:bg-white dark:text-gray-700 before:content-[''] before:absolute before:bg-gray-800 before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:dark:bg-white before:dark:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3"
-          >{badgeStatus}</span
-        >
+        <Badge status={status} />
       </div>
-      <a
+      <ResumeButton
         href="cesar_perez_fullstack_engineer.pdf"
-        download="CV-Cesar-Perez.pdf"
-      >
-        <button
-          class="flex items-center text-sm gap-3 bg-indigo-100 hover:bg-opacity-80 dark:bg-indigo-500 hover:dark:bg-opacity-90 text-indigo-500 dark:text-indigo-100 py-2 px-4 rounded-lg font-semibold"
-          ><FileText size="14" />Resume<!-- --></button
-        >
-      </a>
+        downloadFileName="CV-Cesar-Perez.pdf"
+      />
     </div>
   </div>
 </section>

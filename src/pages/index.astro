@@ -1,4 +1,5 @@
 ---
+import { Status } from "../components/Badge.astro";
 import Email from "../components/Sections/Email.astro";
 import Experience from "../components/Sections/Experience.astro";
 import Header from "../components/Sections/Header.astro";
@@ -13,14 +14,14 @@ import Layout from "../layouts/Layout.astro";
     <div class="grid grid-cols-1 gap-8">
       <div class="grid grid-cols-1 divide-y gap-6">
         <Profile
-          badgeStatus="Not looking for jobs."
+          status={Status.NOT_AVAILABLE}
           title="Cesar Perez"
           description="Sr. Fullstack Engineer"
         />
         <Experience />
       </div>
       <Social />
-      <Email placeholder="cesaraugp01@gmail.com" />
+      <Email email="cesaraugp01@gmail.com" />
     </div>
   </main>
 </Layout>

@@ -4,14 +4,14 @@ interface Props {
 }
 
 const { placeholder } = Astro.props;
-import { Copy, Send } from "astro-feather-icons";
+import { Copy, Mail, Send } from "astro-feather-icons";
 ---
 
 <section class="w-full">
   <header
     class="font-bold text-2xl text-indigo-500 dark:text-gray-100 mb-6 flex items-center gap-3"
   >
-    <h2>Email</h2><div class="i-fa-pro:envelope text-3xl"></div>
+    <h2>Email</h2><Mail />
   </header><div class="flex gap-2">
     <input
       type="text"

@@ -1,0 +1,60 @@
+---
+import Company from "./Company.astro";
+const items = ["Item 1", "Item 2", "Item 3"];
+interface subRole {
+  title: string;
+  featuredResponsabilities: string[];
+  from: string;
+  to: string;
+}
+interface Props {
+  title: string;
+  from: string;
+  to: string;
+  company: {
+    name: string;
+    link?: string;
+  };
+  featuredResponsabilities: string[];
+  subRoles?: subRole[];
+}
+
+const { title, from, to, featuredResponsabilities, company, subRoles } =
+  Astro.props;
+---
+
+<div class="flex flex-col gap-5 mt-4">
+  <div class="flex flex-col gap-1">
+    <h2 class=`text-lg font-semibold text-slate-700 dark:text-orange-300 mb-1`>
+      {title} •
+      <Company link={company.link} name={company.name} />
+    </h2>
+    <slot name="technologies" />
+  </div>
+</div><p class="text-sm text-slate-500 dark:text-slate-400 mb-2 mt-2">
+  {from} — {to}
+</p>
+<ul
+  class="list-disc flex flex-col gap-2 ml-5 text-slate-700 dark:text-gray-300 text-sm"
+>
+  <!-- Iterate through the list of items -->
+  {
+    !subRoles
+      ? featuredResponsabilities.map((text: string) => <li>{text}</li>)
+      : subRoles.map((subRole: subRole) => (
+          <>
+            <h2 class="text-lg font-semibold text-slate-700 dark:text-slate-200">
+              {subRole.title}
+            </h2>
+            <p class="text-sm text-slate-500 dark:text-slate-400 -mt-2">
+              {subRole.from} — {subRole.to}
+            </p>
+            <ul class="list-disc flex flex-col gap-2 ml-5 text-slate-700 dark:text-gray-300 text-sm">
+              {subRole.featuredResponsabilities.map((text: string) => (
+                <li>{text}</li>
+              ))}
+            </ul>
+          </>
+        ))
+  }
+</ul>

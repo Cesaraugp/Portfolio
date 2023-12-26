@@ -36,7 +36,6 @@ const { title, from, to, featuredResponsabilities, company, subRoles } =
 <ul
   class="list-disc flex flex-col gap-2 ml-5 text-slate-700 dark:text-gray-300 text-sm"
 >
-  <!-- Iterate through the list of items -->
   {
     !subRoles
       ? featuredResponsabilities.map((text: string) => <li>{text}</li>)

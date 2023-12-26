@@ -7,6 +7,7 @@ interface Props {
 
 const { title, description, badgeStatus } = Astro.props;
 import { Briefcase, FileText, X } from "astro-feather-icons";
+import AnimatedIconLottie from "./AnimatedIconLottie.astro";
 ---
 
 <section class="flex flex-col sm:flex-row items-center gap-5">
@@ -32,11 +33,15 @@ import { Briefcase, FileText, X } from "astro-feather-icons";
         class="text-2xl sm:text-4xl text-center sm:text-left font-bold text-slate-600 dark:text-slate-100"
       >
         {title}
-      </h1><p
-        class="text-slate-700 text-sm sm:text-lg dark:text-slate-300 max-w-xl rounded-2xl"
-      >
-        {description}
-      </p>
+      </h1>
+      <div class="flex flex-row gap-1 items-center">
+        <p
+          class="text-slate-700 text-sm sm:text-lg dark:text-slate-300 max-w-xl rounded-2xl"
+        >
+          {description}
+        </p>
+        <AnimatedIconLottie />
+      </div>
     </div><div class="flex gap-3">
       <div class="relative group/tooltip">
         <div

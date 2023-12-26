@@ -2,6 +2,25 @@
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 ---
 
-<div class="inline-block" style="width: 45px;">
-  <LottieAnimation src="src/public/assets/mustache.json" autoplay="visible" />
+<div class="inline-block" style="width: 45px;" id="mustache_container">
+  <LottieAnimation src="public/assets/mustache.json" autoplay="visible" />
 </div>
+<style>
+  .white_mustache {
+    filter: brightness(1%) invert(100%);
+  }
+</style>
+<script>
+  const mustacheContainer = document.querySelector(
+    "#mustache_container"
+  ) as HTMLDivElement;
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    mustacheContainer.classList.add("white_mustache");
+  } else {
+    mustacheContainer.classList.remove("white_mustache");
+  }
+</script>

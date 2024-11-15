@@ -5,12 +5,14 @@ import {
   Amazondynamodb,
   Apollographql,
   Awslambda,
+  Cypress,
+  Datadog,
   Discord,
   Docker,
   Firebase,
-  Googleads,
   Javascript,
   Jest,
+  Metabase,
   Mongodb,
   Mysql,
   Nestjs,
@@ -25,15 +27,19 @@ import {
   Redis,
   Redux,
   Serverless,
+  Snowflake,
+  Socketdotio,
   Sqlite,
   Trpc,
+  Twilio,
   Typescript,
   Wix,
   Wordpress,
-  Yarn,
 } from "simple-icons-astro";
+import { EXPERIENCES } from "../../constants";
 import ExperienceItem from "../ExperienceItem.astro";
 import TechnologiesWrapper from "../TechnologiesWrapper.astro";
+const ICON_CLASS = "fill-indigo-400 dark:fill-white";
 ---
 
 <section class="w-full">
@@ -44,128 +50,66 @@ import TechnologiesWrapper from "../TechnologiesWrapper.astro";
     <Briefcase size="24" />
   </header>
   <div class="ml-2">
-    <ExperienceItem
-      title="Fullstack Engineer"
-      to="Actual"
-      from="Aug 2023"
-      company={{ name: "Keep", link: "https://trykeep.com" }}
-      featuredResponsabilities={[
-        "Owned Segment, Hubspot and Ad Conversion tools integrations such as G-Ads, FB Business and Linkedin Ads.",
-        "Made the application process mobile responsive.",
-        "Worked on multiple enhacenments on Bank Accounts connections.",
-      ]}
-    >
+    <ExperienceItem {...EXPERIENCES[0]}>
       <TechnologiesWrapper slot="technologies">
-        <Amazonaws class="fill-indigo-400 dark:fill-white" />
-        <Jest class="fill-indigo-400 dark:fill-white" />
-        <Nextdotjs class="fill-indigo-400 dark:fill-white" />
-        <Prisma class="fill-indigo-400 dark:fill-white" />
-        <Mysql class="fill-indigo-400 dark:fill-white" />
-        <Mongodb class="fill-indigo-400 dark:fill-white" />
-        <Typescript class="fill-indigo-400 dark:fill-white" />
-        <Apollographql class="fill-indigo-400 dark:fill-white" />
-        <Trpc class="fill-indigo-400 dark:fill-white" />
-        <Docker class="fill-indigo-400 dark:fill-white" />
-        <Yarn class="fill-indigo-400 dark:fill-white" />
-        <Googleads class="fill-indigo-400 dark:fill-white" />
+        <Amazonaws class={ICON_CLASS} />
+        <Jest class={ICON_CLASS} />
+        <Cypress class={ICON_CLASS} />
+        <Nextdotjs class={ICON_CLASS} />
+        <Prisma class={ICON_CLASS} />
+        <Mysql class={ICON_CLASS} />
+        <Mongodb class={ICON_CLASS} />
+        <Typescript class={ICON_CLASS} />
+        <Python class={ICON_CLASS} />
+        <Apollographql class={ICON_CLASS} />
+        <Trpc class={ICON_CLASS} />
+        <Docker class={ICON_CLASS} />
+        <Twilio class={ICON_CLASS} />
+        <Socketdotio class={ICON_CLASS} />
+        <Snowflake class={ICON_CLASS} />
+        <Metabase class={ICON_CLASS} />
+        <Datadog class={ICON_CLASS} />
       </TechnologiesWrapper>
     </ExperienceItem>
 
-    <ExperienceItem
-      title="Fullstack Engineer"
-      from="Dic 2021"
-      to="Aug 2023"
-      company={{ name: "Sundevs", link: "https://sundevs.com" }}
-      featuredResponsabilities={[]}
-      subRoles={[
-        {
-          title: "Ssr Advanced Fullstack Engineer",
-          featuredResponsabilities: [
-            "Integrated a Payment Gateway Provider, cutting chargeback expenses by 99.4% through the implementation of AVS.",
-            "Launched a robust back-office platform for Call Center Agents, with monthly sales exceeding $200,000.",
-            "Development of a Websockets Integration that reduced the Customer Purchase Cycle Time up to 40%.",
-          ],
-          from: "Dic 2022",
-          to: "Aug 2023",
-        },
-        {
-          title: "Ssr Fullstack Engineer",
-          featuredResponsabilities: [
-            "Integrated Stripe Payments including Invoices, Payment Links and Payment Intents.",
-            "Built a whole in-house invoices system.",
-            "Development of a menu abstraction from the client's POS system which reduced the payload size up to 82.86%.",
-          ],
-          from: "Mar 2022",
-          to: "Dic 2022",
-        },
-        {
-          title: "Junior Fullstack Engineer",
-          featuredResponsabilities: [
-            "Maintenance and enhacements of core microservices, including Payments, Ordering, Loyalty, and Delivery.",
-            "Integrated Doordash, allowing the business to open a new ordering channel which represents 10% of sales.",
-            "Resolution of important bugs over the Scheduled Payments Ordering for Catering, reducing system errors up to 0%.",
-          ],
-          from: "Dic 2021",
-          to: "Mar 2022",
-        },
-      ]}
-    >
+    <ExperienceItem {...EXPERIENCES[1]}>
       <TechnologiesWrapper slot="technologies">
-        <Amazonaws class="fill-indigo-400 dark:fill-white" />
-        <Awslambda class="fill-indigo-400 dark:fill-white" />
-        <Amazondynamodb class="fill-indigo-400 dark:fill-white" />
-        <Serverless class="fill-indigo-400 dark:fill-white" />
-        <Nestjs class="fill-indigo-400 dark:fill-white" />
-        <Jest class="fill-indigo-400 dark:fill-white" />
-        <React class="fill-indigo-400 dark:fill-white" />
-        <Redux class="fill-indigo-400 dark:fill-white" />
-        <Typescript class="fill-indigo-400 dark:fill-white" />
-        <Mongodb class="fill-indigo-400 dark:fill-white" />
-        <Redis class="fill-indigo-400 dark:fill-white" />
-        <Nx class="fill-indigo-400 dark:fill-white" />
+        <Amazonaws class={ICON_CLASS} />
+        <Awslambda class={ICON_CLASS} />
+        <Amazondynamodb class={ICON_CLASS} />
+        <Serverless class={ICON_CLASS} />
+        <Nestjs class={ICON_CLASS} />
+        <Jest class={ICON_CLASS} />
+        <Cypress class={ICON_CLASS} />
+        <React class={ICON_CLASS} />
+        <Redux class={ICON_CLASS} />
+        <Typescript class={ICON_CLASS} />
+        <Mongodb class={ICON_CLASS} />
+        <Redis class={ICON_CLASS} />
+        <Nx class={ICON_CLASS} />
       </TechnologiesWrapper>
     </ExperienceItem>
-    <ExperienceItem
-      title="Javascript Developer"
-      from="Jun 2021"
-      to="Dic 2021"
-      company={{ name: "Assett+", link: "https://www.assett.ca/" }}
-      featuredResponsabilities={[
-        "Development of a stocks options portfolio bot for Telegram, with daily updates, data scrapping and graphs.",
-        "Development of a membership management bot for Discord, with email verification and role auto-upgrade based on membership changes.",
-        "Certified as Velo Developer, which promoted the company to Legend Partner.",
-      ]}
-    >
+    <ExperienceItem {...EXPERIENCES[2]}>
       <TechnologiesWrapper slot="technologies">
-        <Wix class="fill-indigo-400 dark:fill-white" />
-        <Javascript class="fill-indigo-400 dark:fill-white" />
-        <Nodedotjs class="fill-indigo-400 dark:fill-white" />
-        <Mongodb class="fill-indigo-400 dark:fill-white" />
-        <Puppeteer class="fill-indigo-400 dark:fill-white" />
-        <Discord class="fill-indigo-400 dark:fill-white" />
-        <React class="fill-indigo-400 dark:fill-white" />
-        <Typescript class="fill-indigo-400 dark:fill-white" />
+        <Wix class={ICON_CLASS} />
+        <Javascript class={ICON_CLASS} />
+        <Nodedotjs class={ICON_CLASS} />
+        <Mongodb class={ICON_CLASS} />
+        <Puppeteer class={ICON_CLASS} />
+        <Discord class={ICON_CLASS} />
+        <React class={ICON_CLASS} />
+        <Typescript class={ICON_CLASS} />
       </TechnologiesWrapper>
     </ExperienceItem>
-    <ExperienceItem
-      title="Web Developer"
-      from="Nov 2020"
-      to="Jun 2021"
-      company={{ name: "Ponceleon Software" }}
-      featuredResponsabilities={[
-        "Development and enhancement of Wordpress sites.",
-        "Creation of an internal Time Tracking and Productivity Monitoring tool.",
-        "Worked on multiple back-office customization plugins.",
-      ]}
-    >
+    <ExperienceItem {...EXPERIENCES[3]}>
       <TechnologiesWrapper slot="technologies">
-        <Wordpress class="fill-indigo-400 dark:fill-white" />
-        <Php class="fill-indigo-400 dark:fill-white" />
-        <Nodedotjs class="fill-indigo-400 dark:fill-white" />
-        <Javascript class="fill-indigo-400 dark:fill-white" />
-        <Python class="fill-indigo-400 dark:fill-white" />
-        <Firebase class="fill-indigo-400 dark:fill-white" />
-        <Sqlite class="fill-indigo-400 dark:fill-white" />
+        <Wordpress class={ICON_CLASS} />
+        <Php class={ICON_CLASS} />
+        <Nodedotjs class={ICON_CLASS} />
+        <Javascript class={ICON_CLASS} />
+        <Python class={ICON_CLASS} />
+        <Firebase class={ICON_CLASS} />
+        <Sqlite class={ICON_CLASS} />
       </TechnologiesWrapper>
     </ExperienceItem>
   </div>

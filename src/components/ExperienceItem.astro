@@ -1,22 +1,8 @@
 ---
+import type { ExperienceItem } from "../types";
 import Company from "./Company.astro";
-interface subRole {
-  title: string;
-  featuredResponsabilities: string[];
-  from: string;
-  to: string;
-}
-interface Props {
-  title: string;
-  from: string;
-  to: string;
-  company: {
-    name: string;
-    link?: string;
-  };
-  featuredResponsabilities: string[];
-  subRoles?: subRole[];
-}
+
+interface Props extends ExperienceItem {}
 
 const { title, from, to, featuredResponsabilities, company, subRoles } =
   Astro.props;
@@ -44,7 +30,7 @@ const { title, from, to, featuredResponsabilities, company, subRoles } =
         ))}
       </ul>
     ) : (
-      subRoles.map((subRole: subRole) => (
+      subRoles.map((subRole: ExperienceItem["subRoles"][number]) => (
         <>
           <h2 class="text-lg font-semibold text-slate-700 dark:text-slate-200">
             {subRole.title}

@@ -12,12 +12,11 @@ import Avatar from "../Avatar.astro";
 import Badge from "../Badge.astro";
 import ResumeButton from "../Buttons/Resume.astro";
 import ProfileDescription from "../ProfileDescription.astro";
-const imageSrc =
-  "https://media.licdn.com/dms/image/D4E03AQH9IWept7Mwlw/profile-displayphoto-shrink_200_200/0/1685364458712?e=1709164800&v=beta&t=eyiIn7WZ4aro0ULYSLJm9KSN1nN9bRnDMtpW9PCf0t0";
+const PROFILE_PICTURE_PATH = "public/assets/avatar.jpg";
 ---
 
 <section class="flex flex-col sm:flex-row items-center gap-5">
-  <Avatar src={imageSrc} srcset={imageSrc} />
+  <Avatar src={PROFILE_PICTURE_PATH} srcset={PROFILE_PICTURE_PATH} />
   <div class="flex flex-col items-center sm:items-start gap-3">
     <ProfileDescription title={title} description={description} />
     <div class="flex gap-3">
